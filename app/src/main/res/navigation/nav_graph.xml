@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/noteFragment">
+
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="com.example.noteapp.note.NoteFragment"
+        android:label="NoteFragment" >
+        <action
+            android:id="@+id/action_noteFragment_to_editNoteFragment"
+            app:destination="@id/editNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editNoteFragment"
+        android:name="com.example.noteapp.note.EditNoteFragment"
+        android:label="EditNoteFragment" >
+
+        <action
+            android:id="@+id/action_editNoteFragment_to_noteFragment"
+            app:destination="@id/noteFragment"
+            app:popUpTo="@id/noteFragment" />
+        <argument
+            android:name="noteTitle"
+            app:argType="string" />
+        <argument
+            android:name="noteDescription"
+            app:argType="string" />
+        <argument
+            android:name="noteId"
+            app:argType="integer" />
+        <argument
+            android:name="noteType"
+            app:argType="string" />
+    </fragment>
+</navigation>
